@@ -16,3 +16,7 @@ public class ordre {
 
 
 }
+
+
+
+// 1. henter dato klassen  2.
