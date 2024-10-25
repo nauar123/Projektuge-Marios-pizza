@@ -1,22 +1,35 @@
-public class ordre {
-
+public class Ordre {
 
     private int ordreNr;
-    private int dato;
-    private int tid;
+    private int bestillingsDato;
+    private int bestillingsTid;
+    private Pizza pizzaObjekt;
     // Artiputterne til opgaven.
 
-    public ordre() // default constructor
+    public Ordre() // default constructor
     {}
-
+    public Ordre(int oNr,int bDato, int bTid, Pizza pObjekt)
+    {
+        ordreNr = oNr;
+        bestillingsDato = bDato;
+        bestillingsTid = bTid;
+        pizzaObjekt = pObjekt;
+    }
     public int getOrdreNr()
     {
         return ordreNr;
     }
+    public int getBestillingsDato()
+    {
+        return bestillingsDato;
+    }
+    public int getBestillingsTid() {
+        return bestillingsTid;
+    }
 
-
+    public Pizza getPizzaObjekt() {
+        return pizzaObjekt;
+    }
 }
 
 
-
-// 1. henter dato klassen  2.

@@ -7,7 +7,7 @@ public class Pizza {
     public Pizza() {
     }
 
-    public Pizza(String pName, int pPrice, int pNum)
+    public Pizza(String pName, int pPrice, int pNum)         //parametere til pizza
     {
         pizzaName = pName;
         pizzaPrice = pPrice;
