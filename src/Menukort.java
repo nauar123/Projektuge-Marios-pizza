@@ -2,48 +2,54 @@ import java.util.ArrayList;
 
 public class Menukort {
 
-public static void main (String[]args){
+    public Menukort()
+    {}
 
-    ArrayList<String> pizzaMenu = new ArrayList<String>();
+    public ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
-    pizzaMenu.add(1,"Magaritha");
-    pizzaMenu.add(2,"Pepperoni");
-    pizzaMenu.add(3,"Hawaiian");
-    pizzaMenu.add(4,"BBQ Chicken");
-    pizzaMenu.add(5,"Vegetarian");
-    pizzaMenu.add(6,"Meat Lovers");
-    pizzaMenu.add(7,"Four Cheese");
-    pizzaMenu.add(8,"Buffalo Chicken");
-    pizzaMenu.add(9,"Supreme");
-    pizzaMenu.add(10,"Mexican");
-    pizzaMenu.add(11,"Seafood Special");
-    pizzaMenu.add(12,"Tuna and Sweetcorn");
-    pizzaMenu.add(13,"Spicy Sausage");
-    pizzaMenu.add(14,"Prosciutto and Rocket");
-    pizzaMenu.add(15,"Mushroom and Truffle Oil");
-    pizzaMenu.add(16,"Calzone");
-    pizzaMenu.add(17,"Carbonara Pizza");
-    pizzaMenu.add(18,"Pesto and Chicken");
-    pizzaMenu.add(19,"Gorgonzola and Pear");
-    pizzaMenu.add(20,"Salami and Olive");
-    pizzaMenu.add(21,"Spinach and Ricotta");
-    pizzaMenu.add(22,"Greek Pizza (Feta and Olives)");
-    pizzaMenu.add(23,"Zucchini and Goat Cheese");
-    pizzaMenu.add(24,"Egg and Bacon");
-    pizzaMenu.add(25,"Shrimp and Pesto");
-    pizzaMenu.add(26,"Tandoori Chicken");
-    pizzaMenu.add(27,"Pastrami Pizza");
-    pizzaMenu.add(28,"Bolognese Pizza");
-    pizzaMenu.add(29,"Quattro Stagioni");
-    pizzaMenu.add(30,"Lamb and Mint");
+    public void createMenukort(){
+
+        pizzaMenu.add(new Pizza("Margherita", 60, 1));
+        pizzaMenu.add(new Pizza("Pepperoni", 70, 2));
+        pizzaMenu.add(new Pizza("Hawaiian", 75, 3));
+        pizzaMenu.add(new Pizza("BBQ Chicken", 85, 4));
+        pizzaMenu.add(new Pizza("Vegetarian", 65, 5));
+        pizzaMenu.add(new Pizza("Meat Lovers", 90, 6));
+        pizzaMenu.add(new Pizza("Four Cheese", 80, 7));
+        pizzaMenu.add(new Pizza("Buffalo Chicken", 95, 8));
+        pizzaMenu.add(new Pizza("Supreme", 100, 9));
+        pizzaMenu.add(new Pizza("Mexican", 85, 10));
+        pizzaMenu.add(new Pizza("Seafood Special", 110,11));
+        pizzaMenu.add(new Pizza("Tuna and Sweetcorn", 95, 12));
+        pizzaMenu.add(new Pizza("Spicy Sausage", 80, 13));
+        pizzaMenu.add(new Pizza("Prosciutto and Rocket", 90, 14));
+        pizzaMenu.add(new Pizza("Mushroom and Truffle Oil", 120, 15));
+        pizzaMenu.add(new Pizza("Calzone", 85, 16));
+        pizzaMenu.add(new Pizza("Carbonara Pizza", 90, 17));
+        pizzaMenu.add(new Pizza("Pesto and Chicken", 95, 18));
+        pizzaMenu.add(new Pizza("Gorgonzola and Pear", 110, 19));
+        pizzaMenu.add(new Pizza("Salami and Olive", 80, 20));
+        pizzaMenu.add(new Pizza("Spinach and Ricotta", 70, 21));
+        pizzaMenu.add(new Pizza("Greek Pizza (Feta and Olives)", 75, 22));
+        pizzaMenu.add(new Pizza("Zucchini and Goat Cheese", 85, 23));
+        pizzaMenu.add(new Pizza("Egg and Bacon", 100, 24));
+        pizzaMenu.add(new Pizza("Shrimp and Pesto", 90, 25));
+        pizzaMenu.add(new Pizza("Tandoori Chicken", 110, 26));
+        pizzaMenu.add(new Pizza("Pastrami Pizza", 95, 27));
+        pizzaMenu.add(new Pizza("Bolognese Pizza", 85, 28));
+        pizzaMenu.add(new Pizza("Quattro Stagioni", 105, 29));
+        pizzaMenu.add(new Pizza("Lamb and Mint", 115, 30));
+
+        for(int i=0; i<pizzaMenu.size(); i++)
+        {
+            System.out.println(pizzaMenu.get(i);
+        }
 
 
-    ArrayList<Double> pizzaPrices = new ArrayList<>();
-    pizzaPrices.add()
 
 
 
-}
 
+    }
 
 }
