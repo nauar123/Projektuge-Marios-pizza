@@ -1,13 +1,18 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static javax.swing.UIManager.get;
 
 public class Menukort {
 
-    public Menukort()
-    {}
+    public Menukort() {
+    }
 
     public ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
-    public void createMenukort(){
+    public void createMenukort() {
 
         pizzaMenu.add(new Pizza("Margherita", 60, 1));
         pizzaMenu.add(new Pizza("Pepperoni", 70, 2));
@@ -19,7 +24,7 @@ public class Menukort {
         pizzaMenu.add(new Pizza("Buffalo Chicken", 95, 8));
         pizzaMenu.add(new Pizza("Supreme", 100, 9));
         pizzaMenu.add(new Pizza("Mexican", 85, 10));
-        pizzaMenu.add(new Pizza("Seafood Special", 110,11));
+        pizzaMenu.add(new Pizza("Seafood Special", 110, 11));
         pizzaMenu.add(new Pizza("Tuna and Sweetcorn", 95, 12));
         pizzaMenu.add(new Pizza("Spicy Sausage", 80, 13));
         pizzaMenu.add(new Pizza("Prosciutto and Rocket", 90, 14));
@@ -40,16 +45,29 @@ public class Menukort {
         pizzaMenu.add(new Pizza("Quattro Stagioni", 105, 29));
         pizzaMenu.add(new Pizza("Lamb and Mint", 115, 30));
 
-        for(int i=0; i<pizzaMenu.size(); i++)
-        {
-            System.out.println(pizzaMenu.get(i);
+        for (int i = 0; i < pizzaMenu.size(); i++) {
+            System.out.println(pizzaMenu.get(i));
+
         }
-
-
-
-
-
-
     }
 
-}
+    public void writePizzaMenuFile() {
+        File pizzaMenuFile = new File ("/Users/elev/Desktop/UNI/Programmering/InteliliJ/Projektuge Marios pizza/src/pizzaMenu.txt");
+        try (FileWriter writer = new FileWriter(pizzaMenuFile, true)) {
+                for (int i = 0; i < pizzaMenu.size(); i++) {
+                    Pizza p = pizzaMenu.get(i); // man kan også skrive pizzaMenu.get(i). getPizzaName(); ved metoden nednunder.
+
+                    String pizzaName = p.getPizzaName();
+                    int pizzaPrice = p.getPizzaPrice();
+                    int pizzaNumber = p.getPizzaNumber();
+
+                    writer.append(pizzaName + ",");
+                    writer.append(pizzaPrice + ",");
+                    writer.append(Integer.toString(pizzaNumber) + '\n'); // man skriver '\n'  sådan for at den ikke skriver hele filen i en linje.
+                    // Man skal skrive integer. toString ellers vil den vise fejl for "n".
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
