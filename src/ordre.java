@@ -1,12 +1,13 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Ordre {
 
     private int ordreNr;
     private LocalDate bestillingsDato;
-    private LocalTime bestillingsTid;
+    private LocalDateTime bestillingsTid;
     private Pizza pizzaObjekt;
     private int antalPizza;
     private Random random = new Random();
@@ -20,7 +21,7 @@ public class Ordre {
 
     public Ordre() // default constructor
     {}
-    public Ordre(int oNr, LocalDate bDato,  LocalTime bTid, Pizza pObjekt, int antalP)
+    public Ordre(int oNr, LocalDate bDato,  LocalDateTime bTid, Pizza pObjekt, int antalP)
     {
         ordreNr = oNr;
         bestillingsDato = bDato;
@@ -51,6 +52,16 @@ public class Ordre {
         return antalPizza;
     }
 
+    @Override
+    public String toString() {
+        return "Ordre{" +
+                "ordreNr=" + ordreNr +
+                ", bestillingsDato=" + bestillingsDato +
+                ", bestillingsTid=" + bestillingsTid +
+                ", pizzaObjekt=" + pizzaObjekt +
+                ", antalPizza=" + antalPizza +
+                '}';
+    }
 }
 
 
