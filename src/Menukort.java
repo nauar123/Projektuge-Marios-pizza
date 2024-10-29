@@ -15,7 +15,7 @@ public class Menukort {
 
     public void createMenukort() {
 
-        pizzaMenuList.add(new Pizza("", 0, 0));
+
         pizzaMenuList.add(new Pizza("Margherita", 60, 1));
         pizzaMenuList.add(new Pizza("Pepperoni", 70, 2));
         pizzaMenuList.add(new Pizza("Hawaiian", 75, 3));
@@ -66,8 +66,9 @@ public class Menukort {
 
                 writer.append(pizzaName + ",");
                 writer.append(pizzaPrice + ",");
-                writer.append(Integer.toString(pizzaNumber) + '\n'); // man skriver '\n'  sådan for at den ikke skriver hele filen i en linje.
-                // Man skal skrive integer. toString ellers vil den vise fejl for "n".
+                writer.append(Integer.toString(pizzaNumber) + '\n');
+                // '\n' tilføjer et linjeskift efter pizzaNumber, så hver post starter på en ny linje i filen.
+                // Man Konverterer pizzaNumber fra en integer til en string, da append() kun accepterer string.
             }
         } catch (IOException e) {
             e.printStackTrace();
