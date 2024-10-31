@@ -5,50 +5,71 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    Scanner scanner = new Scanner(System.in);
 
-public static void main (String[] args)
-{
-    Main nonStaticMain = new Main(); // vi arbejder udenom static og derfor skrivervi det her.
-    nonStaticMain.run(); // den her gør at den runner filen igennem.
-}
-private void run() {
-    Menukort menukortInstans = new Menukort(); // vi skal oprette en ny menukort for at kunne bruge den indenunder main klassen.
-    menukortInstans.createMenukort();
-    menukortInstans.writePizzaMenuFile(); // vi kalder på filen.
-
-    // vi kalder på generingen af random kunders bestillinger:
-    System.out.println("her");
-    System.out.print(menukortInstans.getRandomPizza());
-
-
-
-
-    // Opgave vi skal få printet bestilingslisten ud med brug af scanner, så når man taster 1 ind vil magrarihta komme frem.
-
-
-    menukortInstans.createMenukort(); // vi creater den her for at bruge den i metoden under:
-
-
-    for(int i = 0; i < menukortInstans.getPizzaMenuList().size();i++) // vi vil kalde på menukortet og få den til at løbe det igennem derfor bruger vi for loop.
-    {
-        System.out.println(menukortInstans.getPizzaMenuList().get(i));
+    public static void main(String[] args) {
+        Main nonStaticMain = new Main(); // vi arbejder udenom static og derfor skrivervi det her.
+        nonStaticMain.run(); // den her gør at den runner filen igennem.
     }
 
-
-    // vi bruger scanner til at kunne taste et pizzanummer ind og få printet pizza navnet, pizzaprisen og pizza nummeret ud.
-    System.out.println("Skriv pizzanummeret ind");
-    int number = Scanner.nextInt();
-    Scanner.nextLine();  // man skal altid skrive scanner.nextLine efter man har skrevet scanner.nextInt();
-
-
-    // Vi igang med at hive menukortet til bestillingslisten:
-    Pizza selectedPizza = menukortInstans.getPizzaMenuList().get(Number);
-    Pizza chosenPizza = new Pizza (selectedPizza.getPizzaName().selectedPizza.getPizzaPrice().selectedPizza.getPizzaNumber());
+    private void run() {
+        //Metoderne til oprettelese af menukort:
+        Menukort menukortInstans = new Menukort(); // vi skal oprette en ny menukort for at kunne bruge den indenunder main klassen.
+        menukortInstans.createMenukort();
+        menukortInstans.writePizzaMenuFile(); // vi kalder på filen.
 
 
-    // når vi vælger nummeret 1 vil den printe nr 1 plads i arraylistens pizzaNavn, PizzaPris og pizzanummeret
-    Ordre ordre = new Ordre(1,LocalDateTime.now(),LocalDate.now(),chosenPizza);
-    System.out.println(ordre);
+
+
+        //Metoderne til at oprette bestillingslisten:
+        Bestillingsliste bestillingsliste = new Bestillingsliste();
+
+        while (true) {
+            //
+            System.out.println("vælg en pizza (eller tast 'exit' for at gå ud af det, eller 'remove' for at fjerne ordren)");
+            String pizzaNumber = scanner.nextLine();
+
+            // denne metode gør at hvis man taster exit vil den gå ud af programmet.
+            if (pizzaNumber.equalsIgnoreCase("exit")) {
+                break;
+            }
+            // Denne metode gør at hvis man taster remove spørger den om nummeret man vil fjerne og så remover den det.
+            else if (pizzaNumber.equalsIgnoreCase("remove")) {
+                System.out.println("Enter the order number to remove:");
+                int ordreToRemove;
+
+                try {
+                    ordreToRemove = Integer.parseInt(scanner.nextLine());
+                    bestillingsliste.removeOrdreByNr(ordreToRemove);
+                    System.out.println("Ordre nummer" + ordreToRemove + " er blevet fjernet.");
+                } catch (NumberFormatException e) {
+                    System.out.println("forkert input! Please tast et et valid nummer");
+                }
+            }
+
+            try {
+                int pizzaNr = Integer.parseInt(pizzaNumber) - 1; //
+
+
+                // Denne metode tjekker om pizza nummeret er valid
+                if (pizzaNr < 0 || pizzaNr >= menukortInstans.getPizzaMenuList().size()) {
+                    System.out.println("Invalid pizza nuummer. Please vælg et valid pizza nummer.");
+                }
+
+                Pizza selectedPizza = menukortInstans.getPizzaMenuList().get(pizzaNr);
+
+                Ordre ordre = new Ordre(bestillingsliste.getCurrentOrdreNr(), LocalDate.now(),LocalDateTime.now(),selectedPizza);
+                bestillingsliste.addOrdreToList(ordre);
+
+                // PRINT ny ordre Pizza info
+                System.out.println("Ordre tilføjet: " + ordre);
+            }catch (NumberFormatException e) {
+                System.out.println("Forkert imput! Please tast et valid pizza nummer eller 'Exit' for at gå ud af programmet. ");
+
+            }
+            bestillingsliste.addRemovedrdersToFile();
+
+        }
     }
-
 }
+

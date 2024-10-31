@@ -1,0 +1,20 @@
+ACTIVE ORDERS / BESTILLINGSLISTE 
+
+ORDRE:
+ - Ordre Number: 2
+ - Bestillings Tid: 12.44
+ - Bestillings Dato: 31-10-24
+ - Pizza: Pepperoni, Price: 70, Nr: 2
+
+ORDRE:
+ - Ordre Number: 4
+ - Bestillings Tid: 12.44
+ - Bestillings Dato: 31-10-24
+ - Pizza: Pepperoni, Price: 70, Nr: 2
+
+ORDRE:
+ - Ordre Number: 5
+ - Bestillings Tid: 12.44
+ - Bestillings Dato: 31-10-24
+ - Pizza: Hawaiian, Price: 75, Nr: 3
+

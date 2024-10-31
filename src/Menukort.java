@@ -15,7 +15,6 @@ public class Menukort {
 
     public void createMenukort() {
 
-
         pizzaMenuList.add(new Pizza("Margherita", 60, 1));
         pizzaMenuList.add(new Pizza("Pepperoni", 70, 2));
         pizzaMenuList.add(new Pizza("Hawaiian", 75, 3));
@@ -53,8 +52,7 @@ public class Menukort {
         }
     }
 
-    public void writePizzaMenuFile()
-    {
+    public void writePizzaMenuFile() {
         File pizzaMenuFile = new File("/Users/elev/Desktop/UNI/Programmering/InteliliJ/Projektuge Marios pizza/src/pizzaMenu.txt");
         try (FileWriter writer = new FileWriter(pizzaMenuFile, true)) {
             for (int i = 0; i < pizzaMenuList.size(); i++) {
@@ -75,23 +73,7 @@ public class Menukort {
         }
     }
 
-    // for at der bliver generet random kunders bestillinger laver vi denne metode:
-
-    // Laver noget vi kan kalde på i nedstående metode.
-
-    public ArrayList<Pizza> getPizzaMenuList()
-    {
+    public ArrayList<Pizza> getPizzaMenuList() {
         return pizzaMenuList;
-    }
-
-    private Pizza randomPizza() {
-        Random random = new Random();
-        int randomIndex = random.nextInt(pizzaMenuList.size());
-        return pizzaMenuList.get(randomIndex);
-
-    }
-
-    public Pizza getRandomPizza() {
-        return randomPizza();
     }
 }
